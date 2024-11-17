@@ -3,7 +3,7 @@ import { MdOutlineLightMode } from "react-icons/md";
 import { FaBell } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import CartModal from "../../components/CartModal";
-import { BookDataContext } from "../../context/BookDataContext";
+import BookDataContext from "../../context/BookDataContext";
 
 function Navbar() {
   const [showCart, setShowCart] = useState(false)

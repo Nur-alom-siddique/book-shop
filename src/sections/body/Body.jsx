@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import LeftPanel from "./LeftPanel";
 import MainPanel from "./MainPanel";
 import RightPanel from "./RightPanel";
-import { BookDataContext } from "../../context/bookDataContext";
+import BookDataContext from "../../context/BookDataContext";
 
 
 function Body() {

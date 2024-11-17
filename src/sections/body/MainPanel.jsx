@@ -2,7 +2,7 @@ import { MdOutlineStar } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import InfoModal from "../../components/InfoModal";
 import { useContext, useEffect, useState } from "react";
-import { BookDataContext } from "../../context/bookDataContext";
+import BookDataContext from "../../context/BookDataContext";
 import { LuHeart } from "react-icons/lu";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
