@@ -5,7 +5,7 @@ import Body from "../sections/body/Body"
 import Navbar from "../sections/header/Navbar"
 import CartReducer from "../reducer/CartReducer"
 import { ToastContainer, Flip } from 'react-toastify';
-import BookDataContext from "../context/bookDataContext"
+import BookDataContext from "../context/BookDataContext"
 
 
 const books = initialBookData()
