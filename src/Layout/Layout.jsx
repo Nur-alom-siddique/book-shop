@@ -1,17 +1,12 @@
 import { useEffect, useReducer, useState } from "react"
 import Container from "../components/Container"
-import { BookDataContext } from "../context/bookDataContext"
+import { BookDataContext } from "../context/BookDataContext"
 import { initialBookData } from "../data/initialBookData"
 import Body from "../sections/body/Body"
 import Navbar from "../sections/header/Navbar"
 import CartReducer from "../reducer/CartReducer"
 import { ToastContainer, Flip } from 'react-toastify';
 
-// let initialData = {
-//   items: [],
-//   totalItems: 0,
-//   totalAmount: 0
-// }
 
 const books = initialBookData()
 const initialState = {
