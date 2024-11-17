@@ -1,7 +1,7 @@
 import { GoTrash } from "react-icons/go";
 import { HiPlus, HiMinus } from "react-icons/hi";
 import { useContext } from "react";
-import { BookDataContext } from "../context/BookDataContext";
+import BookDataContext from "../context/BookDataContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

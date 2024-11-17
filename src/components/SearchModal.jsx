@@ -1,7 +1,7 @@
 import { CiSearch } from "react-icons/ci"
 import { useContext, useEffect, useState } from "react";
 import { TfiClose } from "react-icons/tfi";
-import { BookDataContext } from "../context/bookDataContext";
+import BookDataContext from "../context/BookDataContext";
 
 function SearchModal({ onClose }) {
   useEffect(() => {

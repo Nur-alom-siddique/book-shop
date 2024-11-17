@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import ListCartModal from "./ListCartModal";
-import { BookDataContext } from "../context/bookDataContext";
+import BookDataContext from "../context/BookDataContext";
 import Swal from 'sweetalert2'
 
 function CartModal({ onClose, setShowCart }) {
