@@ -1,0 +1,88 @@
+import { useContext, useState } from "react";
+import LeftPanel from "./LeftPanel";
+import MainPanel from "./MainPanel";
+import RightPanel from "./RightPanel";
+import { BookDataContext } from "../../context/bookDataContext";
+
+
+function Body() {
+
+  const { books } = useContext(BookDataContext)
+  let [data, setData] = useState(books)
+  const [favorites, setFavorites] = useState([]); // List of favorite books
+
+  const [isName, setIsName] = useState(false)
+  const [isRatting, setIsRatting] = useState(false)
+  const [isPrice, setIsPrice] = useState(false)
+
+  //Right panel Sorting By Requarement
+  const sortByName = () => {
+    setData(data.toSorted((a, b) => a.name.localeCompare(b.name)))
+    setIsName(true)
+    setIsRatting(false)
+    setIsPrice(false)
+  }
+
+  const sortByRating = () => {
+    setData([...data].sort((a, b) => b.rating - a.rating))
+    setIsRatting(true)
+    setIsName(false)
+    setIsPrice(false)
+  }
+
+  const sortByPrice = () => {
+    setData([...data].sort((a, b) => a.price - b.price))
+    setIsPrice(true)
+    setIsRatting(false)
+    setIsName(false)
+  }
+
+  //Left panel Tranding Filtering 
+  const newReleases = () => {
+    const newData = books.filter(item => item.status == "new_releases")
+    return setData(newData);
+  }
+
+  const comingSoon = () => {
+    const updateData = books.filter(item => item.status == "coming_soon")
+    return setData(updateData);
+  }
+
+  const tranding = () => {
+    return setData(books);
+  }
+
+  const favorite = () => {
+    setData(favorites);
+  };
+
+  // Toggle favorite status
+  const toggleFavorite = (book) => {
+    setFavorites((prevFavorites) => {
+      const isFavorite = prevFavorites.find((fav) => fav.id === book.id);
+      if (isFavorite) {
+        // Remove from favorites
+        return prevFavorites.filter((fav) => fav.id !== book.id);
+      } else {
+        // Add to favorites
+        return [...prevFavorites, book];
+      }
+    });
+  };
+
+
+  return (
+    <section className="lg:flex">
+      <LeftPanel newReleases={newReleases} comingSoon={comingSoon} tranding={tranding} favorite={favorite} />
+      <div className="w-8/12 lg:h-screen lg:overflow-y-scroll scrollbar-hide mx-auto gap-4 p-6">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-1">
+          {data.map(book => <MainPanel book={book} key={book.id} toggleFavorite={toggleFavorite} />)}
+        </ul>
+      </div>
+
+      <RightPanel sortByName={sortByName} sortByRating={sortByRating} sortByPrice={sortByPrice} isName={isName} isRatting={isRatting} isPrice={isPrice} />
+    </section>
+  )
+}
+
+export default Body
