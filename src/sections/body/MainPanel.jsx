@@ -57,9 +57,9 @@ function MainPanel({ book, toggleFavorite }) {
 
   return (
     <>
-      <li>
+      <li className="bg-white shadow-md dark:bg-[#171923]">
         <div onClick={() => setIsOpen(true)} className="p-2 border border-gray-200 dark:border-[#595959] rounded-md">
-          <img className="w-full h-72 object-cover" src={book.image} alt="images" />
+          <img className="w-full h-[420px] md:h-[460px] lg:h-72 object-cover" src={book.image} alt="images" />
           <h2 className="text-gray-900 dark:text-white mt-5 text-xs">{book.name}</h2>
           <p className="text-[#8C8C8C] text-[10px] mt-1">{book.author}</p>
           <div className="flex mt-2 text-base">
@@ -70,10 +70,10 @@ function MainPanel({ book, toggleFavorite }) {
           </div>
 
           <div className="flex justify-between mt-5">
-            <button onClick={addHandler} className={`h-8 border border-primary text-gray-950 dark:text-white hover:bg-primary px-2 sm:px-4 lg:px-6 xl:px-10 hover:text-white dark:hover:text-black transition-all duration-500 rounded-md text-[10px] xl:text-xs 
+            <button onClick={addHandler} className={`h-8 w-10/12 lg:w-9/12 border border-primary text-gray-950 dark:text-white hover:bg-primary px-2 sm:px-4 lg:px-6 xl:px-10 hover:text-white dark:hover:text-black transition-all duration-500 rounded-md text-[10px] xl:text-xs 
               ${active && "disabled opacity-70 bg-primary text-white dark:text-black cursor-default px-12"}`}>{active ? "Added To Cart" : `$${book.price} | Add to cart`}</button>
 
-            <div onClick={markHandler} className={`bg-[#2EE0A5]/20 border border-primary ${mark && "border-primary/60"} cursor-pointer w-8 h-8 flex items-center justify-center rounded-md ml-5`}>
+            <div onClick={markHandler} className={`bg-[#2EE0A5]/20 border border-primary ${mark && "border-primary/60"} cursor-pointer w-8 h-8 flex items-center justify-center rounded-md`}>
               {mark
                 ?
                 <FaHeart className="text-primary text-sm " />

@@ -37,16 +37,6 @@ function CartModal({ onClose, setShowCart }) {
     setShowCart(false)
 
 
-
-
-    // Swal.fire({
-    //   title: 'Open the door to pickup !',
-    //   text: 'Do you want to continue',
-    //   icon: 'success',
-    //   confirmButtonText: 'Continue shopping'
-    // })
-
-
     if (items.length === 0) {
       Swal.fire({
         title: "Your cart is empty!",

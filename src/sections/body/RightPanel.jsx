@@ -2,6 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 function RightPanel({ sortByName, sortByRating, sortByPrice, isName, isRatting, isPrice }) {
   return (
+
     <div className="hidden lg:block w-2/12 border-s border-gray-200 dark:border-[#595959] ">
       <h2 className="ml-6 mt-8 text-gray-800 dark:text-white text-base">Filter On Page</h2>
 
@@ -26,6 +27,7 @@ function RightPanel({ sortByName, sortByRating, sortByPrice, isName, isRatting, 
         </li>
       </ul>
     </div>
+
   )
 }
 

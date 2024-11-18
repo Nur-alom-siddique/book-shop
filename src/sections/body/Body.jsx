@@ -72,10 +72,10 @@ function Body() {
 
 
   return (
-    <section className="lg:flex">
+    <section className="lg:flex bg-white h-screen overflow-y-scroll lg:overflow-hidden dark:bg-[#171923] pt-12 fixed w-full max-w-screen-xl z-0">
       <LeftPanel newReleases={newReleases} comingSoon={comingSoon} tranding={tranding} favorite={favorite} />
-      <div className="w-8/12 lg:h-screen lg:overflow-y-scroll scrollbar-hide mx-auto gap-4 p-6">
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-1">
+      <div className="w-10/12 sm:w-11/12 lg:w-8/12 lg:h-screen overflow-y-scroll mx-auto gap-4 p-6">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-2 pb-16">
           {data.map(book => <MainPanel book={book} key={book.id} toggleFavorite={toggleFavorite} />)}
         </ul>
       </div>

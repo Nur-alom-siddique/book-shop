@@ -17,6 +17,7 @@ const initialState = {
 
 function Layout() {
   const [state, dispatch] = useReducer(CartReducer, initialState)
+  const [showNav, setShowNav] = useState(false)
 
   const onAdd = (addItems) => {
     dispatch({
@@ -69,7 +70,7 @@ function Layout() {
 
   return (
 
-    <BookDataContext.Provider value={{ ...state, books, dispatch, removeItem, increament, decreament, crealAll, onAdd, setId, id }}>
+    <BookDataContext.Provider value={{ ...state, books, dispatch, removeItem, increament, decreament, crealAll, onAdd, setId, id, showNav, setShowNav }}>
       <Container className="bg-white dark:bg-[#171923]">
         <Navbar />
         <Body />
