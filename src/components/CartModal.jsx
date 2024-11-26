@@ -5,15 +5,15 @@ import Swal from 'sweetalert2'
 
 function CartModal({ onClose, setShowCart }) {
   //Stop scrolling and window jumping after open modal
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflowY = "hidden";
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
-    return () => {
-      document.body.style.overflowY = "scroll";
-      document.body.style.paddingRight = "0px";
-    }
-  }, [])
+  // useEffect(() => {
+  //   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  //   document.body.style.overflowY = "hidden";
+  //   document.body.style.paddingRight = `${scrollbarWidth}px`;
+  //   return () => {
+  //     document.body.style.overflowY = "scroll";
+  //     document.body.style.paddingRight = "0px";
+  //   }
+  // }, [])
 
 
   const { items, crealAll } = useContext(BookDataContext);

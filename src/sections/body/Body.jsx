@@ -3,12 +3,12 @@ import LeftPanel from "./LeftPanel";
 import MainPanel from "./MainPanel";
 import RightPanel from "./RightPanel";
 import BookDataContext from "../../context/BookDataContext";
+import Footer from "../footer/Footer";
 
 
 function Body() {
 
-  const { books } = useContext(BookDataContext)
-  let [data, setData] = useState(books)
+  const { books, data, setData } = useContext(BookDataContext)
   const [favorites, setFavorites] = useState([]); // List of favorite books
 
   const [isName, setIsName] = useState(false)
@@ -49,7 +49,8 @@ function Body() {
   }
 
   const tranding = () => {
-    return setData(books);
+    const updateData = books.filter(item => item.rating > 4)
+    return setData(updateData)
   }
 
   const favorite = () => {
@@ -72,16 +73,19 @@ function Body() {
 
 
   return (
-    <section className="lg:flex bg-white h-screen overflow-y-scroll lg:overflow-hidden dark:bg-[#171923] pt-12 fixed w-full max-w-screen-xl z-0">
-      <LeftPanel newReleases={newReleases} comingSoon={comingSoon} tranding={tranding} favorite={favorite} />
-      <div className="w-10/12 sm:w-11/12 lg:w-8/12 lg:h-screen overflow-y-scroll mx-auto gap-4 p-6">
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-2 pb-16">
-          {data.map(book => <MainPanel book={book} key={book.id} toggleFavorite={toggleFavorite} />)}
-        </ul>
-      </div>
+    <>
+      <section className="lg:flex bg-white dark:bg-[#171923] pt-12 w-full max-w-screen-xl z-0">
+        <LeftPanel newReleases={newReleases} comingSoon={comingSoon} tranding={tranding} favorite={favorite} />
+        <div className="w-10/12 sm:w-11/12 lg:w-8/12 mx-auto gap-4 p-6">
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-2">
+            {data.map(book => <MainPanel book={book} key={book.id} toggleFavorite={toggleFavorite} />)}
+          </ul>
+        </div>
 
-      <RightPanel sortByName={sortByName} sortByRating={sortByRating} sortByPrice={sortByPrice} isName={isName} isRatting={isRatting} isPrice={isPrice} />
-    </section>
+        <RightPanel sortByName={sortByName} sortByRating={sortByRating} sortByPrice={sortByPrice} isName={isName} isRatting={isRatting} isPrice={isPrice} />
+      </section>
+      <Footer />
+    </>
   )
 }
 

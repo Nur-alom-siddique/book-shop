@@ -6,6 +6,7 @@ import Navbar from "../sections/header/Navbar"
 import CartReducer from "../reducer/CartReducer"
 import { ToastContainer, Flip } from 'react-toastify';
 import BookDataContext from "../context/BookDataContext"
+import Footer from "../sections/footer/Footer"
 
 
 const books = initialBookData()
@@ -18,6 +19,11 @@ const initialState = {
 function Layout() {
   const [state, dispatch] = useReducer(CartReducer, initialState)
   const [showNav, setShowNav] = useState(false)
+
+  // passing to body to filterOut 
+  let [data, setData] = useState(books)
+
+
 
   const onAdd = (addItems) => {
     dispatch({
@@ -70,8 +76,8 @@ function Layout() {
 
   return (
 
-    <BookDataContext.Provider value={{ ...state, books, dispatch, removeItem, increament, decreament, crealAll, onAdd, setId, id, showNav, setShowNav }}>
-      <Container className="bg-white dark:bg-[#171923]">
+    <BookDataContext.Provider value={{ ...state, books, data, setData, dispatch, removeItem, increament, decreament, crealAll, onAdd, setId, id, showNav, setShowNav }}>
+      <Container className="bg-white dark:bg-[#171923] h-screen overflow-y-scroll">
         <Navbar />
         <Body />
       </Container>

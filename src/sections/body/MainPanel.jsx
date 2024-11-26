@@ -59,9 +59,11 @@ function MainPanel({ book, toggleFavorite }) {
     <>
       <li className="bg-white shadow-md dark:bg-[#171923]">
         <div onClick={() => setIsOpen(true)} className="p-2 border border-gray-200 dark:border-[#595959] rounded-md">
-          <img className="w-full h-[420px] md:h-[460px] lg:h-72 object-cover" src={book.image} alt="images" />
-          <h2 className="text-gray-900 dark:text-white mt-5 text-xs">{book.name}</h2>
-          <p className="text-[#8C8C8C] text-[10px] mt-1">{book.author}</p>
+          <div className="overflow-hidden rounded-sm">
+            <img className="w-full h-[420px] md:h-[460px] lg:h-72 object-cover hover:scale-105 transition duration-300" src={book.image} alt="images" />
+          </div>
+          <h2 className="text-gray-900 dark:text-white mt-5 text-[10px] font-semibold">{book.name}</h2>
+          <p className="text-[#8C8C8C] text-[9px] mt-1">{book.author}</p>
           <div className="flex mt-2 text-base">
             {Array.from({ length: book.rating }).map((_, index) => (
               <MdOutlineStar key={index} className="mr-1 text-primary" />

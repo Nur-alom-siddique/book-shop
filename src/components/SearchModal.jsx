@@ -4,21 +4,17 @@ import { TfiClose } from "react-icons/tfi";
 import BookDataContext from "../context/BookDataContext";
 
 function SearchModal({ onClose }) {
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflowY = "hidden";
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
-    return () => {
-      document.body.style.overflowY = "scroll";
-      document.body.style.paddingRight = "0px";
-    }
-  }, [])
 
-
-  const { books } = useContext(BookDataContext)
+  const { books, setData, data } = useContext(BookDataContext)
   const [search, setSearch] = useState("")
   const handleSearch = (e) => {
     setSearch(e.target.value.toLowerCase().replace(/\s+/g, ''));
+  }
+
+  const clickHandler = (id) => {
+    onClose && onClose()
+    const newData = books.filter(item => item.id == id)
+    return setData(newData);
   }
 
   let filterOut = books.filter(curValue => {
@@ -61,7 +57,7 @@ function SearchModal({ onClose }) {
                   :
 
                   (filterOut.map(item => (
-                    <li key={item.id} className="flex flex-wrap pl-5 hover:bg-primary transition-all duration-300 py-2 w-full group">
+                    <li onClick={() => clickHandler(item.id)} key={item.id} className="flex flex-wrap pl-5 hover:bg-primary transition-all duration-300 py-2 w-full group">
                       <img className="h-11 w-10" src={item.image} alt="image" />
                       <div className="pl-5">
                         <h4 className="text-[7px] sm:text-[11px] text-white group-hover:text-black">{item.name}</h4>
