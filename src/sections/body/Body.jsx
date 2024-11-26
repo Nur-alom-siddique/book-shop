@@ -76,7 +76,7 @@ function Body() {
     <>
       <section className="lg:flex bg-white dark:bg-[#171923] pt-12 w-full max-w-screen-xl z-0">
         <LeftPanel newReleases={newReleases} comingSoon={comingSoon} tranding={tranding} favorite={favorite} />
-        <div className="w-10/12 sm:w-11/12 lg:w-8/12 mx-auto gap-4 p-6">
+        <div className="w-10/12 min-h-screen-minus-20 sm:w-11/12 lg:w-8/12 mx-auto gap-4 p-6">
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-2">
             {data.map(book => <MainPanel book={book} key={book.id} toggleFavorite={toggleFavorite} />)}
           </ul>

@@ -14,6 +14,9 @@ export default {
           colors: {
         'primary': '#00D991',
       },
+       minHeight: {
+        'screen-minus-20': 'calc(100vh - 85px)',
+      },
     },
   },
   plugins: [
